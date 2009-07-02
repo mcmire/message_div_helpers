@@ -18,11 +18,11 @@ or wherever.
 
 ## Installation
 
-First, download the silk icon set from famfam.com and put it in public/images/icons/silk.
+First, download the silk icon set from [famfam.com](http://famfamfam.com/lab/icons/silk/) and put it in `public/images/icons/silk`.
 
 Then, you can just use the standard Rails plugin installer:
 
-  script/plugin install git://github.com/mcmire/message_div_helpers
+    script/plugin install git://github.com/mcmire/message_div_helpers
 
 ## Support
 
