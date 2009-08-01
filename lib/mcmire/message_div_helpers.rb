@@ -41,7 +41,7 @@ module Mcmire
       options[:image] = true if [:notice, :success, :error].include?(kind) && !options.include?(:image)
       div_options[:class] ||= kind.to_s
 
-      div_content = block ? capture_haml(&block).chomp : value
+      div_content = block_given? ? (respond_to?(:capture_haml) ? capture_haml(&block) : capture(&block)).chomp : value
       return "" if options[:unless_blank] && div_content.blank?
 
       image_content = ""
@@ -55,7 +55,8 @@ module Mcmire
         image_content = content_tag(:div, image_tag("icons/silk/#{image}.png", :class => 'icon'), image_div_options)
       end
 
-      content_tag(:div, image_content + content_tag(:div, div_content), div_options)
+      div = content_tag(:div, image_content + content_tag(:div, div_content), div_options)
+      block_given? ? concat(div) : div
     end
 
     def message_divs
