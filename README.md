@@ -2,11 +2,9 @@
 
 ## Summary
 
-This is a Rails plugin to aid the programmer in creating and displaying message divs
-(such as notices or errors) based on variables saved in flash, instance variables, 
-or wherever.
+A little plugin for Rails that gives you a handy way of creating a div you would use to display a message to the user after some action -- maybe an informational message, or a message indicating success or failure -- and doing so in a consistent way.
 
-## Usage
+## Examples
 
     <%= message_div_for :notice, flash[:notice] %>
 
@@ -18,20 +16,16 @@ or wherever.
 
 ## Installation
 
-First, download the silk icon set from [famfam.com](http://famfamfam.com/lab/icons/silk/) and put it in `public/images/icons/silk`.
+  script/plugin install git://github.com/mcmire/message_div_helpers
 
-Then, you can just use the standard Rails plugin installer:
-
-    script/plugin install git://github.com/mcmire/message_div_helpers
+Be aware that when you install the plugin, three images will be installed to `public/images/message_div_helpers`. These are just icons for each of the message types.
 
 ## Support
 
-If you find any bugs with this plugin, feel free to:
+If you find a bug or have a feature request, I want to know about it! Feel free to file a [Github issue](http://github.com/mcmire/message_div_helpers/issues), or do one better and fork the [project on Github](http://github.com/mcmire/message_div_helpers) and send me a pull request or patch. Be sure to add tests if you do so, though.
 
-* file a bug report in the [Issues area on Github](http://github.com/mcmire/message_div_helpers/issues)
-* fork the [project on Github](http://github.com/mcmire/message_div_helpers) and send me a pull request
-* email me (*firstname* dot *lastname* at gmail dot com)
+You can also [email me](mailto:elliot.winkler@gmail.com), or [find me on Twitter](http://twitter.com/mcmire).
 
 ## Author/License
 
-(c) 2009 Elliot Winkler. Released under the MIT license.
+(c) 2009-2010 Elliot Winkler. See LICENSE for details.
