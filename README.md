@@ -18,7 +18,7 @@ A little plugin for Rails that gives you a handy way of creating a div you would
 
 Nothing special here, just the ordinary:
 
-  script/plugin install git://github.com/mcmire/message_div_helpers
+    script/plugin install git://github.com/mcmire/message_div_helpers
 
 Be aware that when you install the plugin, three images will be installed to `public/images/message_div_helpers`. These are just icons for each of the message types, taken from the fabulous "silk" icon set at [famfamfam.com](http://famfamfam.com/lab/icons/silk/).
 
