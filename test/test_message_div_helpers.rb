@@ -76,8 +76,28 @@ Protest.context "message_div_helpers" do
         |)
       end
       test "#{message_kind} with custom html options" do
-        view_mock.message_div_for(message_kind, "the message", {}, :class => "foo", :style => "text-align: center").should == html(%|
-          <div class="foo" style="text-align: center">
+        view_mock.message_div_for(message_kind, "the message", {}, :style => "text-align: center").should == html(%|
+          <div class="#{message_kind}" style="text-align: center">
+            <div style="float: left; width: 16px; padding: 3px;">
+              <img alt="#{message_kind}" class="icon" src="/images/message_div_helpers/#{image}.png" />
+            </div>
+            <div>the message</div>
+          </div>
+        |)
+      end
+      test "#{message_kind} with a custom class does not override default class" do
+        view_mock.message_div_for(message_kind, "the message", {}, :class => "foo").should == html(%|
+          <div class="foo #{message_kind}">
+            <div style="float: left; width: 16px; padding: 3px;">
+              <img alt="#{message_kind}" class="icon" src="/images/message_div_helpers/#{image}.png" />
+            </div>
+            <div>the message</div>
+          </div>
+        |)
+      end
+      test "#{message_kind} with a nil class does not crash" do
+        view_mock.message_div_for(message_kind, "the message", {}, :class => nil).should == html(%|
+          <div class="#{message_kind}">
             <div style="float: left; width: 16px; padding: 3px;">
               <img alt="#{message_kind}" class="icon" src="/images/message_div_helpers/#{image}.png" />
             </div>

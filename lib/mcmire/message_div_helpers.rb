@@ -44,7 +44,7 @@ module Mcmire
       kind = kind.to_sym
       options[:unless_blank] = true unless options.include?(:unless_blank)
       options[:image] = true if [:notice, :success, :error].include?(kind) && !options.include?(:image)
-      div_options[:class] ||= kind.to_s
+      div_options[:class] = div_options[:class] ? "#{div_options[:class]} #{kind}" : "#{kind}"
 
       div_content = block_given? ? (respond_to?(:capture_haml) ? capture_haml(&block) : capture(&block)).chomp : value
       return "" if options[:unless_blank] && div_content.blank?
