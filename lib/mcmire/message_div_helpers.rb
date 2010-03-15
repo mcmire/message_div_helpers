@@ -44,7 +44,7 @@ module Mcmire
       kind = kind.to_sym
       options[:unless_blank] = true unless options.include?(:unless_blank)
       options[:image] = true if [:notice, :success, :error].include?(kind) && !options.include?(:image)
-      div_options[:class] = div_options[:class] ? "#{div_options[:class]} #{kind}" : "#{kind}"
+      div_options[:class] = ["message-div", div_options[:class].to_s, kind.to_s].reject(&:blank?).join(" ")
 
       div_content = block_given? ? (respond_to?(:capture_haml) ? capture_haml(&block) : capture(&block)).chomp : value
       return "" if options[:unless_blank] && div_content.blank?
@@ -56,11 +56,11 @@ module Mcmire
           when :success then "accept"
           when :error   then "exclamation"
         end
-        image_div_options = { :style => 'float: left; width: 16px; padding: 3px;' }
+        image_div_options = { :class => 'message-div-icon', :style => 'float: left; width: 16px; padding: 3px;' }
         image_content = content_tag(:div, image_tag("#{MessageDivHelpers.icon_path}/#{image}.png", :class => 'icon', :alt => kind.to_s), image_div_options)
       end
 
-      div = content_tag(:div, image_content + content_tag(:div, div_content), div_options)
+      div = content_tag(:div, image_content + content_tag(:div, div_content, :class => "message-div-content"), div_options)
       block_given? ? concat(div) : div
     end
 
