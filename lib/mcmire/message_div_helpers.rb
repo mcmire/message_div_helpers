@@ -1,5 +1,8 @@
 module Mcmire
   module MessageDivHelpers
+    @@icon_path = "message_div_helpers"
+    mattr_accessor :icon_path
+    
     # This is a handy way of creating a div you would use to display a message
     # to the user after some action -- maybe an informational message, or a
     # message indicating success or failure -- and doing so in a consistent way.
@@ -54,15 +57,11 @@ module Mcmire
           when :error   then "exclamation"
         end
         image_div_options = { :style => 'float: left; width: 16px; padding: 3px;' }
-        image_content = content_tag(:div, image_tag("#{message_div_icon_path}/#{image}.png", :class => 'icon', :alt => kind.to_s), image_div_options)
+        image_content = content_tag(:div, image_tag("#{MessageDivHelpers.icon_path}/#{image}.png", :class => 'icon', :alt => kind.to_s), image_div_options)
       end
 
       div = content_tag(:div, image_content + content_tag(:div, div_content), div_options)
       block_given? ? concat(div) : div
-    end
-    
-    def message_div_icon_path
-      "message_div_helpers"
     end
 
     def message_divs
