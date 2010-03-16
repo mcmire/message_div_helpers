@@ -1,0 +1,31 @@
+.message-div.success, .message-div.error, .message-div.notice {
+  margin: 0px auto;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+  font-size: 1em;
+  padding: 6px;
+  text-align: center;
+}
+
+.message-div.success {
+  border: 1px solid #60A956;
+  background-color: #C1EBBA;
+  color: #48973D;
+}
+
+.message-div.notice {
+  background-color: #CFD6EE;
+  color: #5471A1;
+  border: 1px solid #5471A1;
+}
+
+.message-div.error {
+  background-color: #FFE4DE;
+  border: 1px solid #EA786B;
+  color: #CC0000;
+}
+
+.message-div-icon {
+  float: left;
+  width: 16px;
+}

@@ -56,7 +56,7 @@ module Mcmire
           when :success then "accept"
           when :error   then "exclamation"
         end
-        image_div_options = { :class => 'message-div-icon', :style => 'float: left; width: 16px; padding: 3px;' }
+        image_div_options = { :class => 'message-div-icon' }
         image_content = content_tag(:div, image_tag("#{MessageDivHelpers.icon_path}/#{image}.png", :class => 'icon', :alt => kind.to_s), image_div_options)
       end
 
