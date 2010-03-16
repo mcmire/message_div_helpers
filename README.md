@@ -2,7 +2,7 @@
 
 ## Summary
 
-A little plugin for Rails that gives you a handy way of creating a div you would use to display a message to the user after some action -- maybe an informational message, or a message indicating success or failure -- and doing so in a consistent way.
+A little plugin for Rails that gives you a handy way of creating a div to display a message to the user -- whether an informational message or a message indicating success or failure -- and doing so in a consistent way.
 
 ## Examples
 
@@ -18,9 +18,9 @@ A little plugin for Rails that gives you a handy way of creating a div you would
 
 Nothing special here, just the ordinary:
 
-    script/plugin install git://github.com/mcmire/message_div_helpers
+    script/plugin install git://github.com/mcmire/message_div_helpers.git
 
-Be aware that when you install the plugin, three images will be installed to `public/images/message_div_helpers`. These are just icons for each of the message types, taken from the fabulous "silk" icon set at [famfamfam.com](http://famfamfam.com/lab/icons/silk/).
+Be aware that when you install the plugin, three images will be installed to `public/images/message_div_helpers`. These are just icons for each of the message types, taken from the fabulous "silk" icon set at [famfamfam.com](http://famfamfam.com/lab/icons/silk/). Also, a stylesheet is installed to `public/stylesheet/message_div_helpers.css`. These add styling to the error divs themselves.
 
 ## Support
 
