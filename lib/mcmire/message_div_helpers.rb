@@ -57,7 +57,7 @@ module Mcmire
           when :error   then "exclamation"
         end
         image_div_options = { :class => 'message-div-icon' }
-        image_content = content_tag(:div, image_tag("#{MessageDivHelpers.icon_path}/#{image}.png", :class => 'icon', :alt => kind.to_s), image_div_options)
+        image_content = content_tag(:div, image_tag("#{MessageDivHelpers.icon_path}/#{image}.png", :alt => kind.to_s), image_div_options)
       end
 
       div = content_tag(:div, image_content + content_tag(:div, div_content, :class => "message-div-content"), div_options)
