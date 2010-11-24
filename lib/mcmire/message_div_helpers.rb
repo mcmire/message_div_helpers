@@ -63,13 +63,13 @@ module Mcmire
       div = content_tag(:div, image_content + content_tag(:div, div_content, :class => "message-div-content"), div_options)
       block_given? ? concat(div) : div
     end
-    safe_helper :message_div_for
+    safe_helper :message_div_for if respond_to?(:safe_helper)
 
     def message_divs
       message_div_for(:success, (flash[:success] || @success)) +
       message_div_for(:error,   (flash[:error]   || @error)) +
       message_div_for(:notice,  (flash[:notice]  || @notice))
     end
-    safe_helper :message_divs
+    safe_helper :message_divs if respond_to?(:safe_helper)
   end
 end
